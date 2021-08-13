@@ -1,5 +1,5 @@
 FROM node:12-alpine AS base
-WORKDIR /usr/src/app
+WORKDIR /usr/lib/app
 
 
 RUN apk update && apk add --no-cache bash
