@@ -1,8 +1,9 @@
 FROM node:12-alpine AS base
-WORKDIR /usr/lib/app
+WORKDIR /usr/src/app
 
-RUN  yarn install && yarn run build:ts
+
 RUN apk update && apk add --no-cache bash
+RUN  yarn install && yarn run build:ts
 #RUN  yarn install && yarn run build:ts
 
 
