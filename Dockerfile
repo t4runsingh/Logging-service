@@ -5,9 +5,10 @@ WORKDIR /usr/lib/app
 RUN apk update && apk add --no-cache bash
 RUN  yarn install && yarn run build:ts
 #RUN  yarn install && yarn run build:ts
+RUN rm yarn.lock
 
 
-COPY ./package.json yarn.lock ./
+COPY package.json yarn.lock ./
 COPY lib/backend-commons-lib ./lib/backend-commons-lib
 COPY lib/iam-utils ./lib/iam-utils
 COPY logging-service/package.json logging-service/tsconfig.json ./logging-service/
@@ -29,7 +30,7 @@ RUN  yarn install && yarn run build:ts
 # FROM base AS release
 # COPY --from=dependencies /usr/lib/app/logging-service/dist ./logging-service/dist
 # COPY --from=dependencies /usr/lib/app/node_modules ./node_modules
-# RUN rm yarn.lock
+
 
 RUN chown -R node:node .
 USER node
