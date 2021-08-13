@@ -2,8 +2,8 @@ FROM node:12-alpine AS base
 WORKDIR /usr/lib/app
 
 RUN apk update && apk add --no-cache bash
-RUN  yarn install && yarn run build:ts
-#RUN yarn install --prod --frozen-lockfile && yarn run build
+#RUN  yarn install && yarn run build:ts
+RUN yarn install --prod --frozen-lockfile && yarn run build
 
 COPY package.json yarn.lock ./
 COPY lib/backend-commons-lib ./lib/backend-commons-lib
