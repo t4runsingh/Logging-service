@@ -7,7 +7,7 @@ RUN  yarn install && yarn run build:ts
 #RUN  yarn install && yarn run build:ts
 
 
-COPY package.json yarn.lock ./
+COPY ./package.json yarn.lock ./
 COPY lib/backend-commons-lib ./lib/backend-commons-lib
 COPY lib/iam-utils ./lib/iam-utils
 COPY logging-service/package.json logging-service/tsconfig.json ./logging-service/
