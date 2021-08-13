@@ -20,7 +20,7 @@ RUN apk update && apk add --no-cache \
     g++ \
     python
 COPY logging-service ./logging-service
-RUN  yarn install && yarn run build:ts
+RUN yarn install --prod --frozen-lockfile && yarn run build
 
 # FROM base AS release
 # COPY --from=dependencies /usr/lib/app/logging-service/dist ./logging-service/dist
